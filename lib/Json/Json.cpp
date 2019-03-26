@@ -31,6 +31,7 @@ String Json::getString(Stream *stream,String id){
 
 String Json::getByte(Stream *stream,String id){
      String ret;
+     id=id+"\":";
         while (stream->available()) {
                 data.concat( char(stream->read()));
                 if (data.length()>id.length()) {
@@ -42,8 +43,9 @@ String Json::getByte(Stream *stream,String id){
                                 char a=   char(stream->read());
                                 data.concat(a);
                                 if(data.endsWith(",")) {
-                                  ret=data.substring(3,data.length()-2);
+                                  ret=data.substring(0,data.length()-1);
                                   data="";
+                                  Serial.print(ret);
                                         return ret;
                                 }
                         }

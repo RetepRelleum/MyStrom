@@ -1,7 +1,10 @@
 
 #include <SPI.h>
-#include <MyStrom.h>
 #include <arduino_secrets.h>
+#include "MyStrom.h"
+#include "MyStromSwitch.h"
+#include "MyStromElement.h"
+#include "GeneralInformation.h"
 #include <WiFi101.h>
 #include <WiFiUdp.h>
 
@@ -59,19 +62,23 @@ void setup() {
         myStrom.setup(&udp,&client);
 }
 unsigned long t=0;
+
 void loop() {
         myStrom.loop();
         if (millis()-t>10000) {
                 t=millis()-1;
-                if(myStrom.getIP(0).length()>0) {
-                        Serial.println(  myStrom.getIP(0));
-                        Serial.println(  myStrom.getMac(0));
-                        myStrom.setItem(0);
-                        Serial.println( myStrom.getType());
-                        Serial.println( myStrom.getVersion());
-                              Serial.println( myStrom.getMac());
+                if(myStrom.elementExist()) {
+                        myStrom.printAllElement();
+                        MyStromSwitch myStromSwitch(&client, myStrom.getElement());
+                        Serial.println(  myStromSwitch.getGeneralInformation().getVersion());
+                        Serial.println(  myStromSwitch.getGeneralInformation().getMac());
+                        Serial.println(  myStromSwitch.getGeneralInformation().getType());
+                        Serial.println(  myStromSwitch.getGeneralInformation().getSsid());
+                        Serial.println(  myStromSwitch.getGeneralInformation().getIp());
+                        Serial.println(  myStromSwitch.getGeneralInformation().getMask());
+                        Serial.println(  myStromSwitch.getGeneralInformation().getDns());
+                        Serial.println(  myStromSwitch.getGeneralInformation().getStatic());
+                        Serial.println(  myStromSwitch.getGeneralInformation().getConnected());
                 }
-
         }
-
 }

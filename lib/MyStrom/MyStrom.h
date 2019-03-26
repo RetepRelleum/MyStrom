@@ -1,31 +1,34 @@
 #ifndef MYSTROM
 #define MYSTROM
-#include <Client.h>
-#include <Udp.h>
+#include "Client.h"
+#include "Udp.h"
 #include <Arduino.h>
+#include "MyStromSwitch.h"
+#include "MyStromElement.h"
 
+enum elementType { SwitchCHv1=101,Bulb=102,ButtonP=103,Button=104,LEDstrip=105,SwitchCHv2=106,SwitchEU=107 };
 class MyStrom {
 protected:
-IPAddress ip;
 Client * client;
-Client * www(String str);
-String info(String typ);
-byte infoByte(String typ);
-
 
 UDP *udp;
 int id;
-String item[2][20];
+MyStromElement *myStromElement;
 
 public:
-String getIP(int id);
-String getMac(int id);
-void setItem(int id);
+void insertElement(MyStromElement *myStromElementIn);
+MyStromElement* getElement(){
+        return myStromElement;
+};
 void setup(UDP *udpIn,Client * client);
 void loop();
-String getVersion();
-String getMac();
-byte getType();
+MyStromSwitch getMyStromSwitch(MyStromElement *myStromElementIn);
+bool elementExist(){
+        return ( myStromElement!=NULL);
+}
+void printAllElement();
+
+
 
 
 
