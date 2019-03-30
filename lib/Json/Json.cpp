@@ -75,24 +75,19 @@ String Json::getFloatJ(Stream *stream,String id){
 }
 String Json::getListJ(Stream *stream,int index){
         String ret;
-        id="\""+id+"\":";
+        int i=0;
         while (stream->available()) {
                 data.concat( char(stream->read()));
-                if (data.length()>id.length()) {
-                        data=data.substring(1);
+                if (data.endsWith("\":{") && (i==index)) {
+                        data=data.substring(data.indexOf("\"")+1);
+                        data=data.substring(0,data.indexOf("\""));
+                        return data;
                 }
-                if(data.equalsIgnoreCase(id)) {
+                if (data.endsWith("},")) {
                         data="";
-                        while(stream->available()) {
-                                char a=   char(stream->read());
-                                data.concat(a);
-                                if(data.endsWith(",")|| data.endsWith("}")) {
-                                        ret=data.substring(0,data.length()-1);
-                                        data="";
-                                        return ret;
-                                }
-                        }
+                        i++;
                 }
+                //      Serial.println(data);
         }
         return "";
 }

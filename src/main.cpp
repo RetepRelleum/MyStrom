@@ -89,6 +89,8 @@ void loop() {
                         Serial.println(  myStromSwitch.getTemp().getCompensation());
                         Serial.println(  myStromSwitch.getTemp().getCompensated());
 
+                              Serial.println(  myStromSwitch.getScanWifi().getName(0));
+
 
                 }
         }

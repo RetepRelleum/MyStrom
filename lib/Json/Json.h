@@ -8,7 +8,7 @@ public:
 String getStringJ(Stream *stream,String id);
 String getByteJ(Stream *stream,String id);
 String getFloatJ(Stream *stream,String id);
-String getListJ((Stream *stream,int index);
+String getListJ(Stream *stream,int index);
 };
 
 #endif

@@ -4,6 +4,7 @@
 #include "Strom.h"
 #include "Report.h"
 #include "Temp.h"
+#include "ScanWifi.h"
 class MyStromSwitch : public Strom {
 public:
 MyStromSwitch(Client * clientIn,  MyStromElement *myStromElementIn) : Strom(clientIn,myStromElementIn){
