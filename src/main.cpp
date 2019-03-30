@@ -79,8 +79,17 @@ void loop() {
                         Serial.println(  myStromSwitch.getGeneralInformation().getDns());
                         Serial.println(  myStromSwitch.getGeneralInformation().getStatic());
                         Serial.println(  myStromSwitch.getGeneralInformation().getConnected());
-                        Serial.println(  myStromSwitch.getPower());
-                        Serial.println(  myStromSwitch.getRelay());
+                        //      myStromSwitch.turnOn();
+                        //      myStromSwitch.turnOff();
+                        //      Serial.println(  myStromSwitch.toggle());
+                        Serial.println(  myStromSwitch.getReport().getPower());
+                        Serial.println(  myStromSwitch.getReport().getRelay());
+                        Serial.println(  myStromSwitch.getReport().getTemperature());
+                        Serial.println(  myStromSwitch.getTemp().getMeasured());
+                        Serial.println(  myStromSwitch.getTemp().getCompensation());
+                        Serial.println(  myStromSwitch.getTemp().getCompensated());
+
+
                 }
         }
 }

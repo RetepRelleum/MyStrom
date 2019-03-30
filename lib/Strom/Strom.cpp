@@ -33,6 +33,15 @@ String Strom::getString(String path,String key){
         }
         return val;
 }
+String Strom::getList(String path,int index){
+
+        String val="";
+        client=  www(path);
+        while (client->connected() && val.length()==0) {
+                val=getListJ(client,index);
+        }
+        return val;
+}
 
 byte Strom::getByte(String path,String key){
         String val="";

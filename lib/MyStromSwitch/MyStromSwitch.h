@@ -2,17 +2,35 @@
 #define MYSTROMSWITCH
 #include "MyStromElement.h"
 #include "Strom.h"
+#include "Report.h"
+#include "Temp.h"
 class MyStromSwitch : public Strom {
 public:
 MyStromSwitch(Client * clientIn,  MyStromElement *myStromElementIn) : Strom(clientIn,myStromElementIn){
 };
-float getPower(){
-  return getFloat("/report","power");
+void turnOn(){
+  www("/relay?state=1");
 }
-bool getRelay(){
-    return getBool("/report","relay");
+void turnOff(){
+  www("/relay?state=0");
 }
-float getTemperature 
+bool  toggle (){
+    return getBool("/toggle","relay");
+}
+Report getReport(){
+  Report report(client,myStromElement);
+  return report;
+}
+
+Temp getTemp(){
+  Temp temp(client,myStromElement);
+  return temp;
+}
+ScanWifi getScanWifi(){
+  ScanWifi scanWifi(client,myStromElement);
+  return scanWifi;
+}
+
 };
 
 #endif
