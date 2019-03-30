@@ -79,6 +79,8 @@ void loop() {
                         Serial.println(  myStromSwitch.getGeneralInformation().getDns());
                         Serial.println(  myStromSwitch.getGeneralInformation().getStatic());
                         Serial.println(  myStromSwitch.getGeneralInformation().getConnected());
+                        Serial.println(  myStromSwitch.getPower());
+                        Serial.println(  myStromSwitch.getRelay());
                 }
         }
 }

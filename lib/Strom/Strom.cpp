@@ -1,6 +1,6 @@
 
 #include "Strom.h"
-#include "Json.h"
+
 #include "GeneralInformation.h"
 Client * Strom::www(String str){
         String c="close";
@@ -25,34 +25,38 @@ Client * Strom::www(String str){
 }
 
 String Strom::getString(String path,String key){
-        Json json;
+
         String val="";
         client=  www(path);
         while (client->connected() && val.length()==0) {
-                val=json.getString(client,key);
+                val=getStringJ(client,key);
         }
         return val;
 }
 
 byte Strom::getByte(String path,String key){
-        Json json;
         String val="";
         client=  www(path);
         while (client->connected() && val.length()==0) {
-                val=json.getByte(client,key);
+                val=getByteJ(client,key);
         }
-
         return (byte)val.toInt();
 }
 bool Strom::getBool(String path,String key){
-        Json json;
         String val="";
         client=  www(path);
         while (client->connected() && val.length()==0) {
-                val=json.getByte(client,key);
+                val=getByteJ(client,key);
         }
-
         return val.equalsIgnoreCase("true");
+}
+float Strom::getFloat(String path,String key){
+        String val="";
+        client=  www(path);
+        while (client->connected() && val.length()==0) {
+                val=getFloatJ(client,key);
+        }
+        return val.toFloat();
 }
 Strom::Strom(Client * clientIn,  MyStromElement *myStromElementIn)
 {

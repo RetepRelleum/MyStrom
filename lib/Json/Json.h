@@ -5,8 +5,9 @@ class Json {
 protected:
 String data;
 public:
-String getString(Stream *stream,String id);
-String getByte(Stream *stream,String id);
+String getStringJ(Stream *stream,String id);
+String getByteJ(Stream *stream,String id);
+String getFloatJ(Stream *stream,String id);
 };
 
 #endif
