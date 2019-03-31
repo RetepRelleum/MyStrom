@@ -1,8 +1,8 @@
 
-#include "Strom.h"
+#include "GeneralRequests.h"
 
 #include "GeneralInformation.h"
-Client * Strom::www(String str){
+Client * GeneralRequests::www(String str){
         String c="close";
         if (client->connect(myStromElement->getIpAddress(), 80)) {
                 client->println("GET "+str+" HTTP/1.1");
@@ -24,7 +24,7 @@ Client * Strom::www(String str){
         return client;
 }
 
-String Strom::getString(String path,String key){
+String GeneralRequests::getString(String path,String key){
 
         String val="";
         client=  www(path);
@@ -33,8 +33,7 @@ String Strom::getString(String path,String key){
         }
         return val;
 }
-String Strom::getString(String path,String key1,String key2){
-
+String GeneralRequests::getString(String path,String key1,String key2){
         String val="";
         client=  www(path);
         while (client->connected() && val.length()==0) {
@@ -48,7 +47,7 @@ String Strom::getString(String path,String key1,String key2){
         return val;
 }
 
-float Strom::getFloat(String path,String key1,String key2){
+float GeneralRequests::getFloat(String path,String key1,String key2){
         String val="";
         client=  www(path);
         while (client->connected() && val.length()==0) {
@@ -62,8 +61,7 @@ float Strom::getFloat(String path,String key1,String key2){
         return val.toFloat();
 }
 
-String Strom::getList(String path,int index){
-
+String GeneralRequests::getList(String path,int index){
         String val="";
         client=  www(path);
         while (client->connected() && val.length()==0) {
@@ -72,7 +70,7 @@ String Strom::getList(String path,int index){
         return val;
 }
 
-byte Strom::getByte(String path,String key){
+byte GeneralRequests::getByte(String path,String key){
         String val="";
         client=  www(path);
         while (client->connected() && val.length()==0) {
@@ -80,7 +78,7 @@ byte Strom::getByte(String path,String key){
         }
         return (byte)val.toInt();
 }
-bool Strom::getBool(String path,String key){
+bool GeneralRequests::getBool(String path,String key){
         String val="";
         client=  www(path);
         while (client->connected() && val.length()==0) {
@@ -88,7 +86,7 @@ bool Strom::getBool(String path,String key){
         }
         return val.equalsIgnoreCase("true");
 }
-bool Strom::getBool(String path,String key1,String key2){
+bool GeneralRequests::getBool(String path,String key1,String key2){
         String val="";
         client=  www(path);
         while (client->connected() && val.length()==0) {
@@ -101,7 +99,7 @@ bool Strom::getBool(String path,String key1,String key2){
         }
         return val.equalsIgnoreCase("true");
 }
-float Strom::getFloat(String path,String key){
+float GeneralRequests::getFloat(String path,String key){
         String val="";
         client=  www(path);
         while (client->connected() && val.length()==0) {
@@ -109,13 +107,13 @@ float Strom::getFloat(String path,String key){
         }
         return val.toFloat();
 }
-Strom::Strom(Client * clientIn,  MyStromElement *myStromElementIn)
+GeneralRequests::GeneralRequests(Client * clientIn,  MyStromElement *myStromElementIn)
 {
         client=clientIn;
         myStromElement=myStromElementIn;
 };
 
-GeneralInformation Strom::getGeneralInformation(){
+GeneralInformation GeneralRequests::getGeneralInformation(){
         GeneralInformation generalInformation(client,myStromElement);
         return generalInformation;
 };

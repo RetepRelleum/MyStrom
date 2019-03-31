@@ -1,13 +1,14 @@
 #ifndef MYSTROMSWITCH
 #define MYSTROMSWITCH
 #include "MyStromElement.h"
-#include "Strom.h"
+#include "GeneralRequests.h"
 #include "Report.h"
 #include "Temp.h"
 #include "ScanWifi.h"
-class MyStromSwitch : public Strom {
+
+class MyStromSwitch : public GeneralRequests {
 public:
-MyStromSwitch(Client * clientIn,  MyStromElement *myStromElementIn) : Strom(clientIn,myStromElementIn){
+MyStromSwitch(Client * clientIn,  MyStromElement *myStromElementIn) : GeneralRequests(clientIn,myStromElementIn){
 };
 void turnOn(){
   www("/relay?state=1");
@@ -31,7 +32,11 @@ ScanWifi getScanWifi(){
   ScanWifi scanWifi(client,myStromElement);
   return scanWifi;
 }
-
+void getPowerCycle (int time){
+      String s="/power_cycle?time=";
+      s=s+String(time);
+    www(s);
+}
 };
 
 #endif

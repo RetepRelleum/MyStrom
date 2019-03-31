@@ -1,11 +1,11 @@
 #ifndef TEMP
 #define TEMP
 
-#include "Strom.h"
+#include "GeneralRequests.h"
 
-class Temp : public Strom {
+class Temp : public GeneralRequests {
 public:
-  Temp(Client * clientIn,  MyStromElement *myStromElementIn) : Strom(clientIn,myStromElementIn){
+  Temp(Client * clientIn,  MyStromElement *myStromElementIn) : GeneralRequests(clientIn,myStromElementIn){
   };
   float getMeasured(){
     return getFloat("/temp","measured");

@@ -1,11 +1,11 @@
 #ifndef REPORT
 #define REPORT
 
-#include "Strom.h"
+#include "GeneralRequests.h"
 
-class Report : public Strom {
+class Report : public GeneralRequests {
 public:
-  Report(Client * clientIn,  MyStromElement *myStromElementIn) : Strom(clientIn,myStromElementIn){
+  Report(Client * clientIn,  MyStromElement *myStromElementIn) : GeneralRequests(clientIn,myStromElementIn){
   };
   float getPower(){
     return getFloat("/report","power");

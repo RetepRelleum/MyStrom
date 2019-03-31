@@ -1,11 +1,11 @@
 #ifndef GENERALINFORMATION
 #define GENERALINFORMATION
 
-#include "Strom.h"
+#include "GeneralRequests.h"
 
-class GeneralInformation : public Strom {
+class GeneralInformation : public GeneralRequests {
 public:
-  GeneralInformation(Client * clientIn,  MyStromElement *myStromElementIn) : Strom(clientIn,myStromElementIn){
+  GeneralInformation(Client * clientIn,  MyStromElement *myStromElementIn) : GeneralRequests(clientIn,myStromElementIn){
   };
   String getVersion(){
     return getString("/api/v1/info","version");

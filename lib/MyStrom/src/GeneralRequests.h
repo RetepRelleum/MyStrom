@@ -1,12 +1,12 @@
-#ifndef STROM
-#define STROM
+#ifndef GENERALREQESTS
+#define GENERALREQESTS
 
 #include <Client.h>
 #include "MyStromElement.h"
 #include "Json.h"
 
 class GeneralInformation;
-class Strom :protected Json {
+class GeneralRequests :protected Json {
 protected:
 Client * client;
 MyStromElement *myStromElement;
@@ -20,7 +20,7 @@ float getFloat(String path,String key);
 float getFloat(String path,String key1,String key2);
 String getList(String path,int index);
 public:
-Strom(Client * clientIn,  MyStromElement *myStromElementIn);
+GeneralRequests(Client * clientIn,  MyStromElement *myStromElementIn);
 GeneralInformation getGeneralInformation();
 };
 
