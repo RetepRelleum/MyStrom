@@ -91,3 +91,16 @@ String Json::getListJ(Stream *stream,int index){
         }
         return "";
 }
+
+String Json::getJsonJ(Stream *stream,String id){
+        while (stream->available()) {
+                data.concat( char(stream->read()));
+                if (data.endsWith(id) ) {
+                        return   data;
+                }
+                if (data.length()>id.length()) {
+                        data=data.substring(1);
+                }
+        }
+        return "";
+}

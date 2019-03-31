@@ -88,10 +88,11 @@ void loop() {
                         Serial.println(  myStromSwitch.getTemp().getMeasured());
                         Serial.println(  myStromSwitch.getTemp().getCompensation());
                         Serial.println(  myStromSwitch.getTemp().getCompensated());
-
-                              Serial.println(  myStromSwitch.getScanWifi().getName(0));
-
-
+                        Serial.println(myStromSwitch.getScanWifi().getName(0) );
+                        Serial.println(myStromSwitch.getScanWifi().getName(myStromSwitch.getScanWifi().getName(0)));
+                        Serial.println(myStromSwitch.getScanWifi().getSignal(myStromSwitch.getScanWifi().getName(0)));
+                        Serial.println(myStromSwitch.getScanWifi().getEncryptionOn(myStromSwitch.getScanWifi().getName(0)));
+                        Serial.println(myStromSwitch.getScanWifi().getEncryption(myStromSwitch.getScanWifi().getName(0)));
                 }
         }
 }
