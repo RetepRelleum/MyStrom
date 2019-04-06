@@ -10,7 +10,6 @@ enum elementType { SwitchCHv1=101,Bulb=102,ButtonP=103,Button=104,LEDstrip=105,S
 class MyStrom {
 protected:
 Client * client;
-
 UDP *udp;
 int id;
 MyStromElement *myStromElement;

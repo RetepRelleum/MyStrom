@@ -1,10 +1,7 @@
 
 #include <SPI.h>
 #include <arduino_secrets.h>
-#include "MyStrom.h"
-#include "MyStromSwitch.h"
-#include "MyStromElement.h"
-#include "GeneralInformation.h"
+#include <MyStrom.h>
 #include <WiFi101.h>
 #include <WiFiUdp.h>
 

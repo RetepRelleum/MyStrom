@@ -1,6 +1,8 @@
 #ifndef MYSTROMELEMENT
 #define MYSTROMELEMENT
-#include "Arduino.h"
+#include "IPAddress.h"
+#include <Arduino.h>
+
 class MyStromElement {
 protected:
 IPAddress ipAddress;

@@ -2,11 +2,11 @@
 #define SCANWIFI
 
 
-#include "GeneralRequests.h"
+#include "Strom.h"
 
-class ScanWifi : public GeneralRequests {
+class ScanWifi : protected Strom {
 public:
-ScanWifi(Client * clientIn,  MyStromElement *myStromElementIn) : GeneralRequests(clientIn,myStromElementIn){
+ScanWifi(Client * clientIn,  MyStromElement *myStromElementIn) : Strom(clientIn,myStromElementIn){
 };
 String getName(int index){
         return getList("/networks",index);

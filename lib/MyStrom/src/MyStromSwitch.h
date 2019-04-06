@@ -1,7 +1,7 @@
 #ifndef MYSTROMSWITCH
 #define MYSTROMSWITCH
-#include "MyStromElement.h"
 #include "GeneralRequests.h"
+#include "MyStromElement.h"
 #include "Report.h"
 #include "Temp.h"
 #include "ScanWifi.h"
