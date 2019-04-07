@@ -12,10 +12,10 @@ public:
 MyStromSwitch(Client * clientIn,  MyStromElement *myStromElementIn) : GeneralRequests(clientIn,myStromElementIn){
 };
 void turnOn(){
-  www("/relay?state=1");
+  get("/relay?state=1");
 }
 void turnOff(){
-  www("/relay?state=0");
+  get("/relay?state=0");
 }
 bool  toggle (){
     return getBool("/toggle","relay");
@@ -36,7 +36,7 @@ ScanWifi getScanWifi(){
 void getPowerCycle (int time){
       String s="/power_cycle?time=";
       s=s+String(time);
-    www(s);
+    get(s);
 }
 PowerCycleWebrequest getPowerCycleWebrequest(){
   PowerCycleWebrequest powerCycleWebrequest(client,myStromElement);

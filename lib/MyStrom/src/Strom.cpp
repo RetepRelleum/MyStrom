@@ -2,7 +2,19 @@
 #include "Strom.h"
 
 
-Client * Strom::www(String str){
+void Strom::post(String str,String dat){
+        if (client->connect(myStromElement->getIpAddress(), 80)) {
+                client->println("POST "+str+" HTTP/1.1");
+                client->println("Content-Type: application/x-www-form-urlencoded");
+                client->println("Content-length: " +String( dat.length()+2));
+                client->println("Connection: close");
+                client->println();
+                client->println();
+                client->println(dat);
+                client->stop();
+        }
+}
+Client * Strom::get(String str){
         String c="close";
         if (client->connect(myStromElement->getIpAddress(), 80)) {
                 client->println("GET "+str+" HTTP/1.1");
@@ -27,7 +39,7 @@ Client * Strom::www(String str){
 String Strom::getString(String path,String key){
 
         String val="";
-        client=  www(path);
+        client=  get(path);
         while (client->connected() && val.length()==0) {
                 val=getStringJ(client,key);
         }
@@ -35,7 +47,7 @@ String Strom::getString(String path,String key){
 }
 String Strom::getString(String path,String key1,String key2){
         String val="";
-        client=  www(path);
+        client=  get(path);
         while (client->connected() && val.length()==0) {
                 val=getJsonJ(client,key1);
         }
@@ -49,7 +61,7 @@ String Strom::getString(String path,String key1,String key2){
 
 float Strom::getFloat(String path,String key1,String key2){
         String val="";
-        client=  www(path);
+        client=  get(path);
         while (client->connected() && val.length()==0) {
                 val=getJsonJ(client,key1);
         }
@@ -63,7 +75,7 @@ float Strom::getFloat(String path,String key1,String key2){
 
 String Strom::getList(String path,int index){
         String val="";
-        client=  www(path);
+        client=  get(path);
         while (client->connected() && val.length()==0) {
                 val=getListJ(client,index);
         }
@@ -72,15 +84,25 @@ String Strom::getList(String path,int index){
 
 byte Strom::getByte(String path,String key){
         String val="";
-        client=  www(path);
+        client=  get(path);
         while (client->connected() && val.length()==0) {
                 val=getByteJ(client,key);
         }
         return (byte)val.toInt();
 }
+
+int Strom::getInt(String path,String key){
+        String val="";
+        client=  get(path);
+        while (client->connected() && val.length()==0) {
+                val=getByteJ(client,key);
+        }
+        return (byte)val.toInt();
+}
+
 bool Strom::getBool(String path,String key){
         String val="";
-        client=  www(path);
+        client=  get(path);
         while (client->connected() && val.length()==0) {
                 val=getByteJ(client,key);
         }
@@ -88,7 +110,7 @@ bool Strom::getBool(String path,String key){
 }
 bool Strom::getBool(String path,String key1,String key2){
         String val="";
-        client=  www(path);
+        client=  get(path);
         while (client->connected() && val.length()==0) {
                 val=getJsonJ(client,key1);
         }
@@ -101,7 +123,7 @@ bool Strom::getBool(String path,String key1,String key2){
 }
 float Strom::getFloat(String path,String key){
         String val="";
-        client=  www(path);
+        client=  get(path);
         while (client->connected() && val.length()==0) {
                 val=getFloatJ(client,key);
         }

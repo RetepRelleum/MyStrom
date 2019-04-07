@@ -84,15 +84,23 @@ void loop() {
                         Serial.println(  myStromSwitch.getReport().getTemperature());
                         Serial.println(  myStromSwitch.getTemp().getMeasured());
                         Serial.println(  myStromSwitch.getTemp().getCompensation());
-  
-              /*          Serial.println(myStromSwitch.getScanWifi().getName(0) );
-                        Serial.println(myStromSwitch.getScanWifi().getName(myStromSwitch.getScanWifi().getName(0)));
-                        Serial.println(myStromSwitch.getScanWifi().getSignal(myStromSwitch.getScanWifi().getName(0)));
-                        Serial.println(myStromSwitch.getScanWifi().getEncryptionOn(myStromSwitch.getScanWifi().getName(0)));
-                        Serial.println(myStromSwitch.getScanWifi().getEncryption(myStromSwitch.getScanWifi().getName(0)));
-            */
-                //   myStromSwitch.getPowerCycle(2);
-                      Serial.println(  myStromSwitch.getPowerCycleWebrequest().getAddress());
-               }
+
+                        /*          Serial.println(myStromSwitch.getScanWifi().getName(0) );
+                                  Serial.println(myStromSwitch.getScanWifi().getName(myStromSwitch.getScanWifi().getName(0)));
+                                  Serial.println(myStromSwitch.getScanWifi().getSignal(myStromSwitch.getScanWifi().getName(0)));
+                                  Serial.println(myStromSwitch.getScanWifi().getEncryptionOn(myStromSwitch.getScanWifi().getName(0)));
+                                  Serial.println(myStromSwitch.getScanWifi().getEncryption(myStromSwitch.getScanWifi().getName(0)));
+                         */
+                        //   myStromSwitch.getPowerCycle(2);
+                        Serial.println(  myStromSwitch.getPowerCycleWebrequest().getAddress());
+                        Serial.println(  myStromSwitch.getPowerCycleWebrequest().getTryAt());
+                        Serial.println(  myStromSwitch.getPowerCycleWebrequest().getAttempts());
+                        Serial.println(  myStromSwitch.getPowerCycleWebrequest().getInhibitTime());
+                        Serial.println(  myStromSwitch.getPowerCycleWebrequest().getPingTimeout());
+                        Serial.println(  myStromSwitch.getPowerCycleWebrequest().getRelayOffTime());
+                        Serial.println(  myStromSwitch.getPowerCycleWebrequest().getEnable());
+                        myStromSwitch.getPowerCycleWebrequest().set("192.168.1.115",false);
+
+                }
         }
 }
