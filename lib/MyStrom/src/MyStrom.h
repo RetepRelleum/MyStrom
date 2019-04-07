@@ -13,9 +13,8 @@ Client * client;
 UDP *udp;
 int id;
 MyStromElement *myStromElement;
-
-public:
 void insertElement(MyStromElement *myStromElementIn);
+public:
 MyStromElement* getElement(){
         return myStromElement;
 };

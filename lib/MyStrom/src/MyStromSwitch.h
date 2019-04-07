@@ -5,6 +5,7 @@
 #include "Report.h"
 #include "Temp.h"
 #include "ScanWifi.h"
+#include "PowerCycleWebrequest.h"
 
 class MyStromSwitch : public GeneralRequests {
 public:
@@ -36,6 +37,10 @@ void getPowerCycle (int time){
       String s="/power_cycle?time=";
       s=s+String(time);
     www(s);
+}
+PowerCycleWebrequest getPowerCycleWebrequest(){
+  PowerCycleWebrequest powerCycleWebrequest(client,myStromElement);
+  return powerCycleWebrequest;
 }
 };
 
