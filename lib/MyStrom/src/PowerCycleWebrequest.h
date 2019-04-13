@@ -7,7 +7,10 @@ class PowerCycleWebrequest : protected Strom {
 public:
 PowerCycleWebrequest(Client * clientIn,  MyStromElement *myStromElementIn) : Strom(clientIn,myStromElementIn){
 };
-void set(String address="",bool enabled=0,int tryAt=5,int attempts=3,int inhibitTime=10,int pingTimeout=2,int relayOffTime=15){
+void cyclefoff(){
+  set(" ",false);
+}
+void set(String address="",bool enabled=0,int tryAt=1,int attempts=2,int inhibitTime=10,int pingTimeout=20,int relayOffTime=15){
         addFirst("address",address);
         addNext("tryAt",tryAt);
         addNext("attempts",attempts);

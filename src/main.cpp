@@ -99,7 +99,12 @@ void loop() {
                         Serial.println(  myStromSwitch.getPowerCycleWebrequest().getPingTimeout());
                         Serial.println(  myStromSwitch.getPowerCycleWebrequest().getRelayOffTime());
                         Serial.println(  myStromSwitch.getPowerCycleWebrequest().getEnable());
-                        myStromSwitch.getPowerCycleWebrequest().set("192.168.1.115",false);
+
+
+                                myStromSwitch.getPowerCycleWebrequest().cyclefoff();
+              
+
+
 
                 }
         }
