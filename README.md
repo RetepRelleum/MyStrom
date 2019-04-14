@@ -7,4 +7,8 @@ um Schalter einzuschalten und Temperatur auszulesen
 ![Sequenzdiagramm](https://github.com/RetepRelleum/MyStrom/blob/master/lib/MyStrom/docs/Sequenzdiagramm.svg)
 
 
-Weitere Informationen https://api.mystrom.ch/
+Weitere Informationen https://api.mystrom.ch/ und
+https://store.arduino.cc/arduino-mkr1000
+https://www.arduino.cc/reference/en/#functions
+https://atom.io/
+https://platformio.org/

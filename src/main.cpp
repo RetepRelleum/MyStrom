@@ -109,8 +109,8 @@ void loop() {
                         myStromSwitch.getPowerCycleWebrequest().getRelayOffTime();
                         myStromSwitch.getPowerCycleWebrequest().getEnable();
 
-                      //  myStromSwitch.getPowerCycleWebrequest().cyclefoff();
-                                 myStromSwitch.getPowerCycleWebrequest().set("www.bluewin.ch", true);
+                myStromSwitch.getPowerCycleWebrequest().cyclefoff();
+                    //             myStromSwitch.getPowerCycleWebrequest().set("www.bluewin.ch", true);
                       //  myStromSwitch.getPowerCycledAdvanced().set(off,0);
 
                 }
