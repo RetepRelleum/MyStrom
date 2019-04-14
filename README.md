@@ -8,7 +8,7 @@ um Schalter einzuschalten und Temperatur auszulesen
 
 
 Weitere Informationen https://api.mystrom.ch/ und
-https://store.arduino.cc/arduino-mkr1000
-https://www.arduino.cc/reference/en/#functions
-https://atom.io/
-https://platformio.org/
+- https://www.arduino.cc/reference/en/#functions
+- https://store.arduino.cc/arduino-mkr1000
+- https://atom.io/
+- https://platformio.org/
