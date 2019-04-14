@@ -1,2 +1,2 @@
 # MyStrom
-![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+![Klassendiagramm](https://github.com/RetepRelleum/MyStrom/blob/master/lib/MyStrom/docs/Klassendiagramm.svg)
