@@ -6,6 +6,7 @@
 #include "Temp.h"
 #include "ScanWifi.h"
 #include "PowerCycleWebrequest.h"
+#include "PowerCycledAdvanced.h"
 
 
 class MyStromSwitch : public GeneralRequests {
@@ -43,7 +44,10 @@ PowerCycleWebrequest getPowerCycleWebrequest(){
   PowerCycleWebrequest powerCycleWebrequest(client,myStromElement);
   return powerCycleWebrequest;
 }
-
+ PowerCycledAdvanced getPowerCycledAdvanced(){
+   PowerCycledAdvanced powerCycledAdvanced(client,myStromElement);
+   return powerCycledAdvanced;
+ }
 };
 
 #endif

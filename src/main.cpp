@@ -27,7 +27,7 @@ void printWifiStatus() {
         long rssi = WiFi.RSSI();
         Serial.print("signal strength (RSSI):");
         Serial.print(rssi);
-        Serial.println(" dBm");
+        Serial.println( " dBm");
 }
 
 void setup() {
@@ -36,16 +36,16 @@ void setup() {
         while (!Serial) {
         }
         if (WiFi.status() == WL_NO_SHIELD) {
-                Serial.println("WiFi shield not present");
+                Serial.println(   "WiFi shield not present");
                 while (true);
         }
         String fv = WiFi.firmwareVersion();
         Serial.print("Firmware Version: ");
-        Serial.println(fv);
+        Serial.println( fv);
         // attempt to connect to Wifi network:
         while (status != WL_CONNECTED) {
                 Serial.print("Attempting to connect to SSID: ");
-                Serial.println(ssid);
+                Serial.println(   ssid);
                 // Connect to WPA/WPA2 network. Change this line if using open or WEP network:
                 status = WiFi.begin(ssid, pass);
 
@@ -54,57 +54,64 @@ void setup() {
                         delay(10);
                 }
         }
-        Serial.println("Connected to wifi");
+        Serial.println(   "Connected to wifi");
         printWifiStatus();
         myStrom.setup(&udp,&client);
 }
 unsigned long t=0;
 
 void loop() {
+
         myStrom.loop();
         if (millis()-t>10000) {
                 t=millis()-1;
                 if(myStrom.elementExist()) {
                         myStrom.printAllElement();
                         MyStromSwitch myStromSwitch(&client, myStrom.getElement());
-                        Serial.println(  myStromSwitch.getGeneralInformation().getVersion());
-                        Serial.println(  myStromSwitch.getGeneralInformation().getMac());
-                        Serial.println(  myStromSwitch.getGeneralInformation().getType());
-                        Serial.println(  myStromSwitch.getGeneralInformation().getSsid());
-                        Serial.println(  myStromSwitch.getGeneralInformation().getIp());
-                        Serial.println(  myStromSwitch.getGeneralInformation().getMask());
-                        Serial.println(  myStromSwitch.getGeneralInformation().getDns());
-                        Serial.println(  myStromSwitch.getGeneralInformation().getStatic());
-                        Serial.println(  myStromSwitch.getGeneralInformation().getConnected());
+                        myStromSwitch.getGeneralInformation().getVersion();
+                        myStromSwitch.getGeneralInformation().getMac();
+
+                        myStromSwitch.getGeneralInformation().getType();
+
+                        myStromSwitch.getGeneralInformation().getSsid();
+
+                        myStromSwitch.getGeneralInformation().getIp();
+
+                        myStromSwitch.getGeneralInformation().getMask();
+
+                        myStromSwitch.getGeneralInformation().getDns();
+
+                        myStromSwitch.getGeneralInformation().getStatic();
+
+                        myStromSwitch.getGeneralInformation().getConnected();
+                        myStromSwitch.getConnectToWifi().set(ssid,pass);
                         //      myStromSwitch.turnOn();
                         //      myStromSwitch.turnOff();
-                        //      Serial.println(  myStromSwitch.toggle());
-                        Serial.println(  myStromSwitch.getReport().getPower());
-                        Serial.println(  myStromSwitch.getReport().getRelay());
-                        Serial.println(  myStromSwitch.getReport().getTemperature());
-                        Serial.println(  myStromSwitch.getTemp().getMeasured());
-                        Serial.println(  myStromSwitch.getTemp().getCompensation());
+                        //         myStromSwitch.toggle();
+                        myStromSwitch.getReport().getPower();
+                        myStromSwitch.getReport().getRelay();
+                        myStromSwitch.getReport().getTemperature();
+                        myStromSwitch.getTemp().getMeasured();
+                        myStromSwitch.getTemp().getCompensation();
 
-                        /*          Serial.println(myStromSwitch.getScanWifi().getName(0) );
-                                  Serial.println(myStromSwitch.getScanWifi().getName(myStromSwitch.getScanWifi().getName(0)));
-                                  Serial.println(myStromSwitch.getScanWifi().getSignal(myStromSwitch.getScanWifi().getName(0)));
-                                  Serial.println(myStromSwitch.getScanWifi().getEncryptionOn(myStromSwitch.getScanWifi().getName(0)));
-                                  Serial.println(myStromSwitch.getScanWifi().getEncryption(myStromSwitch.getScanWifi().getName(0)));
+                        /*           myStromSwitch.getScanWifi().getName(0) );
+                                   myStromSwitch.getScanWifi().getName(myStromSwitch.getScanWifi().getName(0)));
+                                   myStromSwitch.getScanWifi().getSignal(myStromSwitch.getScanWifi().getName(0)));
+                                   myStromSwitch.getScanWifi().getEncryptionOn(myStromSwitch.getScanWifi().getName(0)));
+                                   myStromSwitch.getScanWifi().getEncryption(myStromSwitch.getScanWifi().getName(0)));
                          */
                         //   myStromSwitch.getPowerCycle(2);
-                        Serial.println(  myStromSwitch.getPowerCycleWebrequest().getAddress());
-                        Serial.println(  myStromSwitch.getPowerCycleWebrequest().getTryAt());
-                        Serial.println(  myStromSwitch.getPowerCycleWebrequest().getAttempts());
-                        Serial.println(  myStromSwitch.getPowerCycleWebrequest().getInhibitTime());
-                        Serial.println(  myStromSwitch.getPowerCycleWebrequest().getPingTimeout());
-                        Serial.println(  myStromSwitch.getPowerCycleWebrequest().getRelayOffTime());
-                        Serial.println(  myStromSwitch.getPowerCycleWebrequest().getEnable());
+                        myStromSwitch.getPowerCycleWebrequest().getAddress();
+                        myStromSwitch.getPowerCycleWebrequest().getTryAt();
+                        myStromSwitch.getPowerCycleWebrequest().getAttempts();
+                        myStromSwitch.getPowerCycleWebrequest().getInhibitTime();
+                        myStromSwitch.getPowerCycleWebrequest().getPingTimeout();
+                        myStromSwitch.getPowerCycleWebrequest().getRelayOffTime();
+                        myStromSwitch.getPowerCycleWebrequest().getEnable();
 
-
-                                myStromSwitch.getPowerCycleWebrequest().cyclefoff();
-              
-
-
+                      //  myStromSwitch.getPowerCycleWebrequest().cyclefoff();
+                                 myStromSwitch.getPowerCycleWebrequest().set("www.bluewin.ch", true);
+                      //  myStromSwitch.getPowerCycledAdvanced().set(off,0);
 
                 }
         }

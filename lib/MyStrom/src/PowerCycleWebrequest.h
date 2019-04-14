@@ -10,10 +10,9 @@ PowerCycleWebrequest(Client * clientIn,  MyStromElement *myStromElementIn) : Str
 void cyclefoff(){
   set(" ",false);
 }
-void set(String address="",bool enabled=0,int tryAt=1,int attempts=2,int inhibitTime=10,int pingTimeout=20,int relayOffTime=15){
+void set(String address="",bool enabled=0,int tryAt=1,int attempts=2,int inhibitTime=5,int pingTimeout=1,int relayOffTime=5){
         addFirst("address",address);
         addNext("tryAt",tryAt);
-        addNext("attempts",attempts);
         addNext("attempts",attempts);
         addNext("inhibitTime", inhibitTime);
         addNext("pingTimeout", pingTimeout);
