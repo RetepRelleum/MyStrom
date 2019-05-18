@@ -5,7 +5,7 @@
 #include <WiFi101.h>
 #include <WiFiUdp.h>
 
-int keyIndex = 0;            // your network key Index number (needed only for WEP)
+int keyIndex = 0; // your network key Index number (needed only for WEP)
 
 int status = WL_IDLE_STATUS;
 
@@ -13,7 +13,8 @@ MyStrom myStrom;
 WiFiUDP udp;
 WiFiClient client;
 
-void printWifiStatus() {
+void printWifiStatus()
+{
         // print the SSID of the network you're attached to:
         Serial.print("SSID: ");
         Serial.println(WiFi.SSID());
@@ -27,48 +28,57 @@ void printWifiStatus() {
         long rssi = WiFi.RSSI();
         Serial.print("signal strength (RSSI):");
         Serial.print(rssi);
-        Serial.println( " dBm");
+        Serial.println(" dBm");
 }
 
-void setup() {
+void setup()
+{
         //Initialize serial and wait for port to open:
         Serial.begin(115200);
-        while (!Serial) {
+        while (!Serial)
+        {
         }
-        if (WiFi.status() == WL_NO_SHIELD) {
-                Serial.println(   "WiFi shield not present");
-                while (true);
+        if (WiFi.status() == WL_NO_SHIELD)
+        {
+                Serial.println("WiFi shield not present");
+                while (true)
+                        ;
         }
         String fv = WiFi.firmwareVersion();
         Serial.print("Firmware Version: ");
-        Serial.println( fv);
+        Serial.println(fv);
         // attempt to connect to Wifi network:
-        while (status != WL_CONNECTED) {
+        while (status != WL_CONNECTED)
+        {
                 Serial.print("Attempting to connect to SSID: ");
-                Serial.println(   ssid);
+                Serial.println(ssid);
                 // Connect to WPA/WPA2 network. Change this line if using open or WEP network:
                 status = WiFi.begin(ssid, pass);
 
                 // wait 10 seconds for connection:
-                while (WiFi.status()!=WL_CONNECTED) {
+                while (WiFi.status() != WL_CONNECTED)
+                {
                         delay(10);
                 }
         }
-        Serial.println(   "Connected to wifi");
+        Serial.println("Connected to wifi");
         printWifiStatus();
-        myStrom.setup(&udp,&client);
+        myStrom.setup(&udp, &client);
 }
-unsigned long t=0;
+unsigned long t = 0;
 
-void loop() {
+void loop()
+{
 
         myStrom.loop();
-        if (millis()-t>10000) {
-                t=millis()-1;
-                if(myStrom.elementExist()) {
+        if (millis() - t > 10000)
+        {
+                t = millis() - 1;
+                if (myStrom.elementExist())
+                {
                         myStrom.printAllElement();
                         MyStromSwitch myStromSwitch(&client, myStrom.getElement());
-              /*          myStromSwitch.getGeneralInformation().getVersion();
+                        /*          myStromSwitch.getGeneralInformation().getVersion();
                         myStromSwitch.getGeneralInformation().getMac();
 
                         myStromSwitch.getGeneralInformation().getType();
@@ -103,7 +113,7 @@ void loop() {
                                    myStromSwitch.getScanWifi().getEncryption(myStromSwitch.getScanWifi().getName(0)));
                          */
                         //   myStromSwitch.getPowerCycle(2);
-    /*                    myStromSwitch.getPowerCycleWebrequest().getAddress();
+                        /*                    myStromSwitch.getPowerCycleWebrequest().getAddress();
                         myStromSwitch.getPowerCycleWebrequest().getTryAt();
                         myStromSwitch.getPowerCycleWebrequest().getAttempts();
                         myStromSwitch.getPowerCycleWebrequest().getInhibitTime();
@@ -112,11 +122,8 @@ void loop() {
                         myStromSwitch.getPowerCycleWebrequest().getEnable();
 
                 myStromSwitch.getPowerCycleWebrequest().cyclefoff();*/
-                    //             myStromSwitch.getPowerCycleWebrequest().set("www.bluewin.ch", true);
-                      //  myStromSwitch.getPowerCycledAdvanced().set(off,0);
-
-
-
+                        //             myStromSwitch.getPowerCycleWebrequest().set("www.bluewin.ch", true);
+                        //  myStromSwitch.getPowerCycledAdvanced().set(off,0);
                 }
         }
 }

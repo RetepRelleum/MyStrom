@@ -1,0 +1,34 @@
+// AUTOMATICALLY GENERATED FILE. PLEASE DO NOT MODIFY IT MANUALLY
+
+// PIO Unified Debugger
+//
+// Documentation: https://docs.platformio.org/page/plus/debugging.html
+// Configuration: https://docs.platformio.org/page/projectconf/section_env_debug.html
+
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "platformio-debug",
+            "request": "launch",
+            "name": "PIO Debug",
+            "executable": "/home/relleum/Documents/PlatformIO/Projects/MyArdionoStrom/.pioenvs/mkr1000USB/firmware.elf",
+            "toolchainBinDir": "/home/relleum/.platformio/packages/toolchain-gccarmnoneeabi/bin",
+            "svdPath": "/home/relleum/.platformio/platforms/atmelsam/misc/svd/ATSAMD21G18A.svd",
+            "preLaunchTask": {
+                "type": "PlatformIO",
+                "task": "Pre-Debug"
+            },
+            "internalConsoleOptions": "openOnSessionStart"
+        },
+        {
+            "type": "platformio-debug",
+            "request": "launch",
+            "name": "PIO Debug (skip Pre-Debug)",
+            "executable": "/home/relleum/Documents/PlatformIO/Projects/MyArdionoStrom/.pioenvs/mkr1000USB/firmware.elf",
+            "toolchainBinDir": "/home/relleum/.platformio/packages/toolchain-gccarmnoneeabi/bin",
+            "svdPath": "/home/relleum/.platformio/platforms/atmelsam/misc/svd/ATSAMD21G18A.svd",
+            "internalConsoleOptions": "openOnSessionStart"
+        }
+    ]
+}
