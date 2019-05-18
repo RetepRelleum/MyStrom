@@ -87,7 +87,6 @@ String Json::getListJ(Stream *stream,int index){
                         data="";
                         i++;
                 }
-                //      Serial.println(data);
         }
         return "";
 }

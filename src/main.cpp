@@ -68,7 +68,7 @@ void loop() {
                 if(myStrom.elementExist()) {
                         myStrom.printAllElement();
                         MyStromSwitch myStromSwitch(&client, myStrom.getElement());
-                        myStromSwitch.getGeneralInformation().getVersion();
+              /*          myStromSwitch.getGeneralInformation().getVersion();
                         myStromSwitch.getGeneralInformation().getMac();
 
                         myStromSwitch.getGeneralInformation().getType();
@@ -88,12 +88,14 @@ void loop() {
                         //      myStromSwitch.turnOn();
                         //      myStromSwitch.turnOff();
                         //         myStromSwitch.toggle();
+                        */
                         myStromSwitch.getReport().getPower();
+                        /*
                         myStromSwitch.getReport().getRelay();
                         myStromSwitch.getReport().getTemperature();
                         myStromSwitch.getTemp().getMeasured();
                         myStromSwitch.getTemp().getCompensation();
-
+*/
                         /*           myStromSwitch.getScanWifi().getName(0) );
                                    myStromSwitch.getScanWifi().getName(myStromSwitch.getScanWifi().getName(0)));
                                    myStromSwitch.getScanWifi().getSignal(myStromSwitch.getScanWifi().getName(0)));
@@ -101,7 +103,7 @@ void loop() {
                                    myStromSwitch.getScanWifi().getEncryption(myStromSwitch.getScanWifi().getName(0)));
                          */
                         //   myStromSwitch.getPowerCycle(2);
-                        myStromSwitch.getPowerCycleWebrequest().getAddress();
+    /*                    myStromSwitch.getPowerCycleWebrequest().getAddress();
                         myStromSwitch.getPowerCycleWebrequest().getTryAt();
                         myStromSwitch.getPowerCycleWebrequest().getAttempts();
                         myStromSwitch.getPowerCycleWebrequest().getInhibitTime();
@@ -109,9 +111,11 @@ void loop() {
                         myStromSwitch.getPowerCycleWebrequest().getRelayOffTime();
                         myStromSwitch.getPowerCycleWebrequest().getEnable();
 
-                myStromSwitch.getPowerCycleWebrequest().cyclefoff();
+                myStromSwitch.getPowerCycleWebrequest().cyclefoff();*/
                     //             myStromSwitch.getPowerCycleWebrequest().set("www.bluewin.ch", true);
                       //  myStromSwitch.getPowerCycledAdvanced().set(off,0);
+
+
 
                 }
         }
