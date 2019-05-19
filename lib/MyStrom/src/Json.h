@@ -25,7 +25,7 @@ void addNext(String id,String value){
 void addEnd(){
         data+="}";
         debug_print("json \t ");
-        debug_println(data);
+        debug_println(data); 
 }
 String getJsonString(){
         return data;

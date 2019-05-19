@@ -13,8 +13,7 @@ MyStrom myStrom;
 WiFiUDP udp;
 WiFiClient client;
 
-void printWifiStatus()
-{
+void printWifiStatus(){
         // print the SSID of the network you're attached to:
         Serial.print("SSID: ");
         Serial.println(WiFi.SSID());
@@ -31,13 +30,11 @@ void printWifiStatus()
         Serial.println(" dBm");
 }
 
-void setup()
-{
+void setup(){
         //Initialize serial and wait for port to open:
         Serial.begin(115200);
         while (!Serial) {}
-        if (WiFi.status() == WL_NO_SHIELD)
-        {
+        if (WiFi.status() == WL_NO_SHIELD){
                 Serial.println("WiFi shield not present");
                 while (true);
         }
@@ -45,16 +42,13 @@ void setup()
         Serial.print("Firmware Version: ");
         Serial.println(fv);
         // attempt to connect to Wifi network:
-        while (status != WL_CONNECTED)
-        {
+        while (status != WL_CONNECTED){
                 Serial.print("Attempting to connect to SSID: ");
                 Serial.println(ssid);
                 // Connect to WPA/WPA2 network. Change this line if using open or WEP network:
                 status = WiFi.begin(ssid, pass);
-
                 // wait 10 seconds for connection:
-                while (WiFi.status() != WL_CONNECTED)
-                {
+                while (WiFi.status() != WL_CONNECTED){
                         delay(10);
                 }
         }
@@ -64,14 +58,11 @@ void setup()
 }
 unsigned long t = 0;
 
-void loop()
-{
+void loop(){
         myStrom.loop();
-        if (millis() - t > 10000)
-        {
+        if (millis() - t > 10000){
                 t = millis() - 1;
-                if (myStrom.elementExist())
-                {
+                if (myStrom.elementExist()){
                         myStrom.printAllElement();
                         MyStromSwitch myStromSwitch(&client, myStrom.getElement());
                         /*          myStromSwitch.getGeneralInformation().getVersion();
