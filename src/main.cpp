@@ -11,7 +11,8 @@ int status = WL_IDLE_STATUS;
 
 MyStrom myStrom;
 WiFiUDP udp;
-WiFiClient client;
+WiFiClient client; 
+
 
 void printWifiStatus(){
         // print the SSID of the network you're attached to:
