@@ -6,12 +6,11 @@
         {
             "name": "Linux",
             "includePath": [
-                "/home/relleum/Documents/PlatformIO/Projects/MyArdionoStrom/include",
-                "/home/relleum/Documents/PlatformIO/Projects/MyArdionoStrom/src",
-                "/home/relleum/Documents/PlatformIO/Projects/MyArdionoStrom/lib/MyStrom/src",
+                "/home/relleum/Documents/PlatformIO/Projects/MyStrom-for-MKR1000/MyStrom-for-MKR1000/include",
+                "/home/relleum/Documents/PlatformIO/Projects/MyStrom-for-MKR1000/MyStrom-for-MKR1000/src",
                 "/home/relleum/.platformio/lib/WiFi101_ID299/src",
                 "/home/relleum/.platformio/packages/framework-arduinosam/libraries/__cores__/samd/SPI",
-                "/home/relleum/Documents/PlatformIO/Projects/MyArdionoStrom/lib/arduino_secrets",
+                "/home/relleum/Documents/PlatformIO/Projects/MyStrom-for-MKR1000/MyStrom-for-MKR1000/lib/MyStrom/src",
                 "/home/relleum/.platformio/packages/framework-arduinosam/cores/samd",
                 "/home/relleum/.platformio/packages/framework-arduinosam/system/samd/CMSIS/CMSIS/Include",
                 "/home/relleum/.platformio/packages/framework-arduinosam/system/samd/CMSIS-Atmel/CMSIS/Device/ATMEL",
@@ -33,12 +32,11 @@
             "browse": {
                 "limitSymbolsToIncludedHeaders": true,
                 "path": [
-                    "/home/relleum/Documents/PlatformIO/Projects/MyArdionoStrom/include",
-                    "/home/relleum/Documents/PlatformIO/Projects/MyArdionoStrom/src",
-                    "/home/relleum/Documents/PlatformIO/Projects/MyArdionoStrom/lib/MyStrom/src",
+                    "/home/relleum/Documents/PlatformIO/Projects/MyStrom-for-MKR1000/MyStrom-for-MKR1000/include",
+                    "/home/relleum/Documents/PlatformIO/Projects/MyStrom-for-MKR1000/MyStrom-for-MKR1000/src",
                     "/home/relleum/.platformio/lib/WiFi101_ID299/src",
                     "/home/relleum/.platformio/packages/framework-arduinosam/libraries/__cores__/samd/SPI",
-                    "/home/relleum/Documents/PlatformIO/Projects/MyArdionoStrom/lib/arduino_secrets",
+                    "/home/relleum/Documents/PlatformIO/Projects/MyStrom-for-MKR1000/MyStrom-for-MKR1000/lib/MyStrom/src",
                     "/home/relleum/.platformio/packages/framework-arduinosam/cores/samd",
                     "/home/relleum/.platformio/packages/framework-arduinosam/system/samd/CMSIS/CMSIS/Include",
                     "/home/relleum/.platformio/packages/framework-arduinosam/system/samd/CMSIS-Atmel/CMSIS/Device/ATMEL",
@@ -59,7 +57,7 @@
                 ]
             },
             "defines": [
-                "PLATFORMIO=40002",
+                "PLATFORMIO=40003",
                 "ARDUINO_SAMD_MKR1000",
                 "ARDUINO_ARCH_SAMD",
                 "__SAMD21G18A__",
